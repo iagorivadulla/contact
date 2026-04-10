@@ -5,25 +5,160 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iago Rivadulla - Data Scientist</title>
     <style>
-        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; background-color: #f4f4f9; color: #333; }
-        .card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; width: 80%; max-width: 300px; }
-        img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #007bff; }
-        h1 { margin: 10px 0 5px; font-size: 1.5rem; }
-        p { color: #666; margin-bottom: 20px; font-size: 0.9rem; }
-        .btn { display: block; background: #007bff; color: white; text-decoration: none; padding: 12px; border-radius: 8px; margin-bottom: 10px; font-weight: bold; transition: 0.3s; }
-        .btn:hover { background: #0056b3; }
-        .secondary { background: #24292e; } /* Color GitHub */
+        :root {
+            --bg-gradient: radial-gradient(178.13% 82.27% at 50% 0%, #918c67 0%, #0E1216 100%);
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --accent-color: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: var(--bg-gradient);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: white;
+        }
+
+        .container {
+            width: 315px;
+            text-align: center;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 30px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid white;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 22px;
+            margin: 10px 0;
+            font-weight: 800;
+        }
+
+        .title {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .link-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .btn-save {
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 30px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-save:hover {
+            transform: scale(1.03);
+            background-color: #f0f0f0;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .icon-circle {
+            background: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .icon-circle:hover { transform: scale(1.1); }
+        
+        .icon-circle img { width: 20px; height: 20px; }
+
     </style>
 </head>
 <body>
+
+<div class="container">
     <div class="card">
-        <img src="tu-foto.jpg" alt="Iago Rivadulla">
-        <h1>Iago Rivadulla</h1>
-        <p>Data Scientist</p>
+        <img src="https://assets.azzapp.com/azzapp/image/upload/c_limit,w_224/f_avif/q_auto:best/i_prh3mob5ano2" alt="Iago Rivadulla" class="profile-img">
         
-        <a href="iagorivadulla.vcf" class="btn">💾 Guardar Contacto</a>
-        <a href="https://github.com/iagorivadulla" class="btn secondary">💻 Ver GitHub</a>
-        <a href="https://www.linkedin.com/in/iagorivadulla/" class="btn" style="background:#0077b5;">🔗 LinkedIn</a>
+        <h1>Iago Rivadulla</h1>
+        <div class="title">Data Scientist</div>
+
+        <div class="social-icons">
+            <a href="https://github.com/iagorivadulla" class="icon-circle">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Github">
+            </a>
+            <a href="https://linkedin.com/in/iagorivadulla/" class="icon-circle">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="Linkedin">
+            </a>
+        </div>
+
+        <div class="links-container">
+            <a href="tel:+34699451475" class="link-item">📞 +34 699 45 14 75</a>
+            <a href="mailto:iagorivadullaact@gmail.com" class="link-item">📧 iagorivadullaact@gmail.com</a>
+            <a href="https://drive.google.com/file/d/1cSyBCLbb1VMz36oEY2XckIF4xznEmhS2/view" class="link-item">📄 Ver Currículum (PDF)</a>
+        </div>
     </div>
+
+    <a href="iagorivadulla.vcf" class="btn-save">Guardar contacto</a>
+</div>
+
 </body>
 </html>
