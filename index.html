@@ -93,14 +93,16 @@
             color: black;
             border: none;
             border-radius: 50px;
-            padding: 15px 2px;
+            padding: 15px 0; /* 15px arriba/abajo, 0 a los lados porque ya tiene width 100% */
             font-weight: bold;
             cursor: pointer;
             width: 100%;
             font-size: 16px;
             transition: 0.3s;
             text-decoration: none;
-            display: inline-block;
+            display: block; /* Cambiado de inline-block a block para control total del ancho */
+            text-align: center; /* Asegura que el texto esté en el eje central */
+            box-sizing: border-box; /* Crucial para que el padding no sume ancho extra al 100% */
         }
 
         .btn-save:hover {
