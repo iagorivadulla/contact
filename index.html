@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iago Rivadulla - Data Scientist</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
             --bg-gradient: radial-gradient(178.13% 82.27% at 50% 0%, #918c67 0%, #0E1216 100%);
-            --card-bg: rgba(255, 255, 255, 0.1);
+            --card-bg: rgba(255, 255, 255, 0.08);
             --accent-color: #ffffff;
         }
 
@@ -30,12 +31,12 @@
 
         .card {
             background: var(--card-bg);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 30px;
             padding: 30px 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
             margin-bottom: 20px;
         }
 
@@ -43,109 +44,121 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            border: 2px solid white;
+            border: 2px solid rgba(255, 255, 255, 0.8);
             object-fit: cover;
             margin-bottom: 15px;
         }
 
         h1 {
             font-size: 22px;
-            margin: 10px 0;
+            margin: 10px 0 5px 0;
             font-weight: 800;
         }
 
         .title {
-            font-size: 14px;
-            color: #ccc;
-            margin-bottom: 5px;
+            font-size: 13px;
+            color: #ddd;
+            margin-bottom: 8px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
-        .subtitle{
+        
+        .subtitle {
             font-size: 12px;
-            color: #ccc;
-            margin-bottom: 5px;
-            font-weight: 600;
-            letter-spacing: 1px;
+            color: #bbb;
+            margin-bottom: 6px;
+            font-style: italic;
         }
-       .subtitle2{
+
+        .subtitle2 {
             font-size: 10px;
-            text-align: centre;
-            color: #ccc;
-            margin-bottom: 15px;
+            text-align: center; /* Corregido */
+            color: #aaa;
+            margin-bottom: 20px;
             font-weight: 600;
-            letter-spacing: 1px;
-        }
-
-        .links-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        .link-item {
-            display: flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 14px;
-            padding: 10px 15px;
-            text-decoration: none;
-            color: white;
-            font-size: 14px;
-            transition: 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .link-item:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .btn-save {
-            background-color: white;
-            color: black;
-            border: none;
-            border-radius: 50px;
-            padding: 15px 0; /* 15px arriba/abajo, 0 a los lados porque ya tiene width 100% */
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
-            transition: 0.3s;
-            text-decoration: none;
-            display: block; /* Cambiado de inline-block a block para control total del ancho */
-            text-align: center; /* Asegura que el texto esté en el eje central */
-            box-sizing: border-box; /* Crucial para que el padding no sume ancho extra al 100% */
-        }
-
-        .btn-save:hover {
-            transform: scale(1.03);
-            background-color: #f0f0f0;
+            letter-spacing: 0.5px;
         }
 
         .social-icons {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .icon-circle {
             background: white;
-            width: 35px;
-            height: 35px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: 0.3s;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .icon-circle:hover { transform: scale(1.1); }
-        
-        .icon-circle img { width: 20px; height: 20px; }
+        .icon-circle:hover { transform: scale(1.15); }
+
+        /* Filtro para que el logo de LinkedIn sea negro/estable como el de GitHub */
+        .icon-circle img { 
+            width: 20px; 
+            height: 20px; 
+            filter: grayscale(1); 
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            transition: 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Estilo para los iconos internos de los botones */
+        .link-item i {
+            margin-right: 12px;
+            color: #ccc;
+            width: 18px; /* Ancho fijo para estabilidad */
+        }
+
+        .link-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-save {
+            background-color: white;
+            color: black;
+            border-radius: 50px;
+            padding: 16px 0;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            font-size: 15px;
+            transition: 0.3s;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            box-sizing: border-box;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-save:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
 
     </style>
 </head>
@@ -154,10 +167,11 @@
 <div class="container">
     <div class="card">
         <img src="https://assets.azzapp.com/azzapp/image/upload/c_limit,w_224/f_avif/q_auto:best/i_prh3mob5ano2" alt="Iago Rivadulla" class="profile-img">
-        
+
         <h1>Iago Rivadulla</h1>
-        <div class="title">Data Scientist</div>        <div class="subtitle">Datos bien cocinados, mejores decisiones</div>
-<div class="subtitle2">Python · SQL · Machine Learning · Quant Finance</div>
+        <div class="title">Data Scientist</div>
+        <div class="subtitle">Datos bien cocinados, mejores decisiones</div>
+        <div class="subtitle2">Python · SQL · Machine Learning · Quant Finance</div>
 
         <div class="social-icons">
             <a href="https://github.com/iagorivadulla" class="icon-circle">
@@ -169,17 +183,27 @@
         </div>
 
         <div class="links-container">
-            <a href="tel:+34699451475" class="link-item">📞 +34 699 45 14 75</a>
-            <a href="mailto:iagorivadullaact@gmail.com" class="link-item">📧 iagorivadullaact@gmail.com</a>
-            <a href="https://drive.google.com/file/d/1cSyBCLbb1VMz36oEY2XckIF4xznEmhS2/view" class="link-item">📄 Ver Currículum</a>
-
-<a href="proyectos.html" class="link-item">📊 Probar Proyectos</a>
-
+            <a href="tel:+34699451475" class="link-item">
+                <i data-lucide="phone"></i> +34 699 45 14 75
+            </a>
+            <a href="mailto:iagorivadullaact@gmail.com" class="link-item">
+                <i data-lucide="mail"></i> iagorivadullaact@gmail.com
+            </a>
+            <a href="https://drive.google.com/file/d/1cSyBCLbb1VMz36oEY2XckIF4xznEmhS2/view" class="link-item">
+                <i data-lucide="file-text"></i> Ver Currículum
+            </a>
+            <a href="proyectos.html" class="link-item">
+                <i data-lucide="bar-chart-3"></i> Probar Proyectos
+            </a>
         </div>
     </div>
 
     <a href="iagorivadulla.vcf" class="btn-save">Guardar contacto</a>
 </div>
+
+<script>
+  lucide.createIcons();
+</script>
 
 </body>
 </html>
