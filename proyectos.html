@@ -44,7 +44,23 @@
             margin-bottom: 10px;
             min-height: 676px; /* reemplaza con el valor real de index */
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between
         }
+
+        .card-top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+    .card-bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+            }
+
         .profile-img {
             width: 100px;
             height: 100px;
@@ -171,12 +187,13 @@
 
 <div class="container">
     <div class="card">
+        <div class="card-top">
         <img src="Profile_pic.png" alt="Iago Rivadulla" class="profile-img">
-
         <h1>Iago Rivadulla</h1>
         <div class="subtitle">Soluciones reales a problemas reales.</div>
+    </div>
 
-
+     <div class="card-bottom">
         <div class="links-container">
             <a href="http://" target="_blank" class="link-item">
                 <i data-lucide="chart-no-axes-combined" stroke-width="1.5"></i> Market Regimen Terminal
@@ -191,6 +208,7 @@
                 <i data-lucide="undo-2" stroke-width="1.5"></i>
             </a>
         </div>
+    </div>
     </div>
 
     <a href="iagorivadulla.vcf" class="btn-save">Guardar contacto</a>
