@@ -66,11 +66,12 @@
             text-transform: uppercase;
             letter-spacing: 1.2px;
         }
-        
+
         .subtitle {
             font-size: 12px;
             color: #aaaaaa;
             margin-bottom: 6px;
+            transition: opacity 0.3s ease;
         }
 
         .subtitle2 {
@@ -78,6 +79,7 @@
             color: #888888;
             margin-bottom: 28px;
             font-weight: 500;
+            transition: opacity 0.3s ease;
         }
 
         .social-icons {
@@ -85,6 +87,7 @@
             justify-content: center;
             gap: 16px;
             margin-bottom: 28px;
+            transition: opacity 0.3s ease;
         }
 
         .icon-circle {
@@ -100,17 +103,17 @@
 
         .icon-circle:hover { transform: scale(1.1); }
 
-        /* Logos sociales en gris/negro para no romper la estética */
-        .icon-circle img { 
-            width: 18px; 
-            height: 18px; 
-            filter: grayscale(1); 
+        .icon-circle img {
+            width: 18px;
+            height: 18px;
+            filter: grayscale(1);
         }
 
         .links-container {
             display: flex;
             flex-direction: column;
             gap: 10px;
+            transition: opacity 0.3s ease;
         }
 
         .link-item {
@@ -126,12 +129,11 @@
             border: 1px solid rgba(255, 255, 255, 0.03);
         }
 
-        /* Alineación estable: la clave de la profesionalidad */
         .link-item i {
             margin-right: 14px;
             color: #ffffff;
             opacity: 0.8;
-            width: 22px; /* Ancho fijo para que el texto siempre alinee igual */
+            width: 22px;
             display: flex;
             justify-content: center;
         }
@@ -160,7 +162,6 @@
             background-color: #f0f0f0;
             transform: translateY(-2px);
         }
-
     </style>
 </head>
 <body>
@@ -171,32 +172,29 @@
 
         <h1>Iago Rivadulla</h1>
         <div class="title">Data Scientist · Quant Finance</div>
-        <div class="subtitle">Precisión en cada plato, exactitud en cada dato.</div>
-        <div class="subtitle2">Python · SQL · Machine Learning </div>
+        <div class="subtitle" id="frase">Precisión en cada plato, exactitud en cada dato.</div>
+        <div class="subtitle2" id="stack">Python · SQL · Machine Learning</div>
 
-        <div class="social-icons">
+        <div class="social-icons" id="sociales">
             <a href="https://github.com/iagorivadulla" class="icon-circle">
                 <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="Github">
             </a>
             <a href="https://linkedin.com/in/iagorivadulla/" class="icon-circle">
                 <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="Linkedin">
             </a>
-            <!-- <a href="https://drive.google.com/file/d/1cSyBCLbb1VMz36oEY2XckIF4xznEmhS2/view" class="icon-circle">
-                <img src="https://cdn-icons-png.flaticon.com/512/909/909314.png" alt="Curriculum">
-            </a>-->
         </div>
 
-        <div class="links-container">
+        <div class="links-container" id="links">
             <a href="tel:+34699451475" class="link-item">
                 <i data-lucide="phone" stroke-width="1.5"></i> +34 699 45 14 75
             </a>
             <a href="mailto:iagorivadullaact@gmail.com" class="link-item">
                 <i data-lucide="mail" stroke-width="1.5"></i> iagorivadullaact@gmail.com
             </a>
-           <a href="https://drive.google.com/file/d/1cSyBCLbb1VMz36oEY2XckIF4xznEmhS2/view" class="link-item">
+            <a href="https://drive.google.com/file/d/1cSyBCLbb1VMz36oEY2XckIF4xznEmhS2/view" class="link-item">
                 <i data-lucide="file-text" stroke-width="1.5"></i> Ver Currículum
             </a>
-            <a href="proyectos.html" class="link-item">
+            <a href="#" class="link-item" onclick="mostrarProyectos(event)">
                 <i data-lucide="layout-grid" stroke-width="1.5"></i> Probar Proyectos
             </a>
         </div>
@@ -207,6 +205,82 @@
 
 <script>
     lucide.createIcons();
+
+    function mostrarProyectos(e) {
+        e.preventDefault();
+        const links = document.getElementById('links');
+        const sociales = document.getElementById('sociales');
+        const frase = document.getElementById('frase');
+        const stack = document.getElementById('stack');
+
+        links.style.transition = sociales.style.transition =
+        frase.style.transition = stack.style.transition = 'opacity 0.3s ease';
+
+        links.style.opacity = '0';
+        sociales.style.opacity = '0';
+        frase.style.opacity = '0';
+        stack.style.opacity = '0';
+
+        setTimeout(() => {
+            sociales.style.display = 'none';
+            stack.style.display = 'none';
+            frase.textContent = 'Soluciones reales a problemas reales.';
+
+            links.innerHTML = `
+                <a href="http://" target="_blank" class="link-item">
+                    <i data-lucide="chart-no-axes-combined" stroke-width="1.5"></i> Market Regimen Terminal
+                </a>
+                <a href="http://" target="_blank" class="link-item">
+                    <i data-lucide="house" stroke-width="1.5"></i> Home Credit Default Risk
+                </a>
+                <a href="#" class="link-item" onclick="mostrarContacto(event)">
+                    <i data-lucide="undo-2" stroke-width="1.5"></i> Volver
+                </a>
+            `;
+            lucide.createIcons();
+
+            links.style.opacity = '1';
+            frase.style.opacity = '1';
+        }, 300);
+    }
+
+    function mostrarContacto(e) {
+        e.preventDefault();
+        const links = document.getElementById('links');
+        const sociales = document.getElementById('sociales');
+        const frase = document.getElementById('frase');
+        const stack = document.getElementById('stack');
+
+        links.style.opacity = '0';
+        frase.style.opacity = '0';
+
+        setTimeout(() => {
+            sociales.style.display = 'flex';
+            stack.style.display = 'block';
+            frase.textContent = 'Precisión en cada plato, exactitud en cada dato.';
+
+            links.innerHTML = `
+                <a href="tel:+34699451475" class="link-item">
+                    <i data-lucide="phone" stroke-width="1.5"></i> +34 699 45 14 75
+                </a>
+                <a href="mailto:iagorivadullaact@gmail.com" class="link-item">
+                    <i data-lucide="mail" stroke-width="1.5"></i> iagorivadullaact@gmail.com
+                </a>
+                <a href="https://drive.google.com/file/d/1cSyBCLbb1VMz36oEY2XckIF4xznEmhS2/view" class="link-item">
+                    <i data-lucide="file-text" stroke-width="1.5"></i> Ver Currículum
+                </a>
+                <a href="#" class="link-item" onclick="mostrarProyectos(event)">
+                    <i data-lucide="layout-grid" stroke-width="1.5"></i> Probar Proyectos
+                </a>
+            `;
+            lucide.createIcons();
+
+            links.style.opacity = '1';
+            frase.style.opacity = '1';
+            sociales.style.opacity = '1';
+            stack.style.opacity = '1';
+        }, 300);
+    }
 </script>
 
 </body>
